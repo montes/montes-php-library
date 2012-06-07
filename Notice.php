@@ -27,10 +27,19 @@ namespace Montes;
 
 class Notice
 {
+    public static function setup()
+    {
+
+    }
 
     public static function catchException($e)
     {
-        echo '<h1>'.$e->message().'</h1>';
+        echo '<h1>Exception!</h1><pre>' . $e->getMessage() . '</pre>';
+    }
+
+    public static function catchDBExcepion($e)
+    {
+        echo '<h1>DB Exception!</h1><pre>' . $e->getMessage() . '</pre>';
     }
 }
 ?>

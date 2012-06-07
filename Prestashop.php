@@ -51,11 +51,25 @@ class Prestashop {
             else
                 $filename = $newname;
 
-            if (move_uploaded_file($file['tmp_name'], $uploadDir . $filename))
-                return $filename;
+            try {
+                if (move_uploaded_file($file['tmp_name'], $uploadDir . $filename))
+                    return $filename;
+            } catch(Exception $e) {
+                Notice::catchException($e);
+            }
         }
 
         return false;
+    }
+
+    public static function updateConfigurationArray($name, $array)
+    {
+
+    }
+
+    public static function deleteConfigurationArray($name, $index)
+    {
+
     }
 }
 
